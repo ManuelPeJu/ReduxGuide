@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import './App.css'
 import Header from './components/Header'
 import { addUser } from './redux/userSlice'
+import Email from './components/Email'
 function App() {
 
  const disptach = useDispatch()
@@ -11,6 +12,7 @@ function App() {
   fetch("https://jsonplaceholder.typicode.com/users/1")
     .then((response) => response.json())
     .then((data) => disptach(addUser(data)))
+    .catch((error) => console.log(error))
  }, [])
 
  
@@ -18,6 +20,7 @@ function App() {
     <>
       <div className='App'>
         <Header />
+        <Email />
       </div>
     </>
   )
